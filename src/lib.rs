@@ -1,13 +1,13 @@
 extern crate ansi_term;
+extern crate dirs;
 extern crate nix;
 extern crate rosc;
-extern crate dirs;
 
 use nix::unistd::execv;
 use std::ffi::CString;
 use std::io::{self, Read};
 use std::path::Path;
-use std::{process};
+use std::process;
 
 mod file;
 mod log_packet;
@@ -45,10 +45,10 @@ pub fn eval(code: String) {
 ///
 pub fn check() {
     if server::server_port_in_use() {
-        println!("Sonic Pi server listening on port 4557");
+        println!("Sonic Pi server listening on port 4560");
         process::exit(0);
     } else {
-        println!("Sonic Pi server NOT listening on port 4557");
+        println!("Sonic Pi server NOT listening on port 4560");
         process::exit(1);
     }
 }
@@ -60,8 +60,7 @@ pub fn stop() {
 }
 
 // TODO: Colour the word "error:"
-const ADDR_IN_USE_MSG: &str =
-    r#"error: Unable to listen for Sonic Pi server logs, address already in use.
+const ADDR_IN_USE_MSG: &str = r#"error: Unable to listen for Sonic Pi server logs, address already in use.
 
 This may because the Sonic Pi GUI is running and already listening on the desired port.
 If the GUI is running this command cannot function, try running just the Sonic Pi server."#;
@@ -88,7 +87,9 @@ pub fn logs() {
 ///
 pub fn start_server() {
     let mut paths = vec![
-        String::from("/Applications/Sonic Pi.app/Contents/Resources/app/server/ruby/bin/sonic-pi-server.rb"),
+        String::from(
+            "/Applications/Sonic Pi.app/Contents/Resources/app/server/ruby/bin/sonic-pi-server.rb",
+        ),
         String::from("/Applications/Sonic Pi.app/server/bin/sonic-pi-server.rb"),
         String::from("/Applications/Sonic Pi.app/server/ruby/bin/sonic-pi-server.rb"),
         String::from("./app/server/bin/sonic-pi-server.rb"),

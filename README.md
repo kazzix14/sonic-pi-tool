@@ -16,16 +16,16 @@ It's ideal for use with [sonicpi.vim][sonicpi.vim].
 
 ### From source
 
-If you have the [Rust programming language][rust-install] installed 
+If you have the [Rust programming language][rust-install] installed
 sonic-pi-tool can be installed like so:
 
 ```sh
 cargo install --git https://github.com/lpil/sonic-pi-tool/ --force
 ```
 
-Note that while Rust needs to be installed to compile sonic-pi-tool, it is not 
+Note that while Rust needs to be installed to compile sonic-pi-tool, it is not
 needed to run it. You may uninstall Rust or copy the sonic-pi-tool binary from
-`~/.cargo/bin` to another computer with the same processor architecture and operating 
+`~/.cargo/bin` to another computer with the same processor architecture and operating
 system if you wish.
 
 [rust-install]: https://www.rust-lang.org/en-US/install.html
@@ -62,7 +62,7 @@ Homebrew formula is here: [Cj-bc/homebrew-sonic-pi-tool](https://github.com/Cj-b
 
 ```sh
 sonic-pi-tool check
-# => Sonic Pi server listening on port 4557
+# => Sonic Pi server listening on port 4560
 ```
 
 Used to check if the Sonic Pi server is running. If the server isn't running
